@@ -1,0 +1,65 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: JetBrainsMono Nerd Font;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+window#waybar {
+    background:rgba (0, 0, 0, 0.55);
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#taskbar button,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#power-profiles-daemon,
+#power,
+#bluetooth,
+#custom-notification,
+#language {
+    padding: 0 8px;
+    border-radius: 4px;
+    margin: 3px 0px;
+}
+
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#power-profiles-daemon:hover,
+#idle_inhibitor:hover,
+#pulseaudio:hover,
+#battery:hover,
+#custom-notification:hover,
+#backlight:hover,
+#language:hover {
+    color: #fab387;
+}
+
+#workspaces button.active {
+    color: #00ff99;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#custom-power:hover {
+    color: #0F94D2;
+}
+
+#temperature.critical {
+    background-color: #f53c3c;
+}

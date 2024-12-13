@@ -1,0 +1,13 @@
+.control-center,
+.notification {
+    background: #161616;
+}
+
+* {
+    border-radius: 4px;
+}
+
+.blank-window {
+    background: alpha(black, 0.33);
+  }
+  
