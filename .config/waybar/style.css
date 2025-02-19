@@ -6,7 +6,7 @@
 }
 
 window#waybar {
-    background:rgba (0, 0, 0, 0.55);
+    background:rgba (0, 0, 0, 0.60);
 }
 
 window#waybar.hidden {
@@ -30,9 +30,9 @@ window#waybar.hidden {
 #bluetooth,
 #custom-notification,
 #language {
-    padding: 0 8px;
+    padding: 0 7px;
     border-radius: 4px;
-    margin: 3px 0px;
+    margin: 0px 0px;
 }
 
 #clock:hover,
@@ -48,12 +48,20 @@ window#waybar.hidden {
     color: #fab387;
 }
 
+#workspaces {
+    margin-right: 2px;
+}
+
 #workspaces button.active {
     color: #00ff99;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+}
+
+#custom-power {
+    font-size: 16px;
 }
 
 #custom-power:hover {

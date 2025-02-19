@@ -1,9 +1,9 @@
 // -*- mode: jsonc -*-
 {
-    "reload_style_on_change": true,
-    // "layer": "top",
+    "reload_style_on_change": false,
+    "layer": "top",
     "position": "bottom",
-    "height": 35,
+    "height": 36,
     "spacing": 4,
     "modules-left": [
         "custom/power",
@@ -15,10 +15,8 @@
     ],
     "modules-right": [
         //"idle_inhibitor",
-        "pulseaudio",
-        "pulseaudio#input",
-        "cpu",
-        "memory",
+        "group/audio",
+        "group/hardware",
         "temperature",
         "backlight",
         "battery",
@@ -29,6 +27,20 @@
         "hyprland/language",
         "clock"
     ],
+    "group/audio": {
+		"orientation": "vertical",
+		"modules": [
+            "pulseaudio#input",
+			"pulseaudio"
+		]
+	},
+    "group/hardware": {
+		"orientation": "vertical",
+		"modules": [
+			"cpu",
+			"memory"
+		]
+	},
     "hyprland/workspaces": {
         "active-only": false,
         "show-special": true,
@@ -51,7 +63,7 @@
     "clock": {
         "timezone": "",
         "tooltip-format": "<tt>{calendar}</tt>",
-        "format": "{:%d %b %H:%M}",
+        "format": "{:%d %b\n %H:%M}",
         "format-alt": "{:%a, %d %b %Y (%R)}",
         "calendar": {
             "mode": "month",
@@ -75,13 +87,15 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "on-click": "alacritty -e sh -c htop",
-        "interval": 10
+        "on-click": "xfce4-terminal -e htop",
+        "on-click-right": "gnome-system-monitor",
+        "interval": 7
     },
     "memory": {
         "format": "{}% ",
-        "on-click": "alacritty -e sh -c htop",
-        "interval": 10
+        "on-click": "xfce4-terminal -e htop",
+        "on-click-right": "gnome-system-monitor",
+        "interval": 7
     },
     "temperature": {
         "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
@@ -93,7 +107,7 @@
             "",
             ""
         ],
-        "interval": 10
+        "interval": 7
     },
     "backlight": {
         "format": "{percent}% {icon}",
@@ -114,16 +128,16 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 94,
             "warning": 30,
             "critical": 20
         },
         "format": "{capacity}% {icon} ",
         "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-plugged": "",
         "format-alt": "{time} {icon}  {power}W",
-        "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+       // "format-good": "", // An empty format will hide the module
+        "format-full": "",
         "format-icons": [
             "",
             "",
@@ -132,7 +146,7 @@
             ""
         ],
         "on-click": "",
-        "interval": 10
+        "interval": 7
     },
     "power-profiles-daemon": {
         "format": "{icon} ",
@@ -164,7 +178,8 @@
                 " "
             ]
         },
-        "on-click": "pavucontrol -t 3"
+        "on-click": "pavucontrol -t 3",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
     "pulseaudio#input": {
         "format": "{format_source}",
@@ -172,10 +187,11 @@
         "format-source-muted": " ",
         "on-scroll-down": "",
         "on-scroll-up": "",
-        "on-click": "pavucontrol -t 4"
+        "on-click": "pavucontrol -t 4",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     },
     "custom/power": {
-        "format": "  ",
+        "format": "  ",
         "tooltip": false,
         "on-click": "wlogout --show-binds --protocol layer-shell",
         "on-click-right": "pidof wofi || wofi -ia --allow-images --show drun"
@@ -192,15 +208,11 @@
     "wlr/taskbar": {
         "format": "{icon}",
         "on-click": "activate",
+        "active-first": false,
         //"on-click-right": "fullscreen",
         "on-click-middle": "close",
         "icon-size": 24,
-        "tooltip-format": "{title} ({app_id})",
-        "ignore-list": [
-            "clipse",
-            " ",
-            ""
-        ]
+        "tooltip-format": "{title} ({app_id})"
     },
     "custom/notification": {
         "format": "{icon}",
