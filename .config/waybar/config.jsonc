@@ -65,7 +65,7 @@
         "timezone": "",
         "tooltip-format": "<tt>{calendar}</tt>",
         "format": "{:%d %b\n %H:%M}",
-        "format-alt": "{:%a, %d %b %Y (%R)}",
+        "format-alt": "{:%a, %d %b %Y}",
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
@@ -90,13 +90,13 @@
         "format": "{usage}% ",
         "on-click": "xfce4-terminal -e htop",
         "on-click-right": "gnome-system-monitor",
-        "interval": 7
+        "interval": 6
     },
     "memory": {
         "format": "{}% ",
         "on-click": "xfce4-terminal -e htop",
         "on-click-right": "gnome-system-monitor",
-        "interval": 7
+        "interval": 6
     },
     "temperature": {
         "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
@@ -108,7 +108,7 @@
             "",
             ""
         ],
-        "interval": 7
+        "interval": 6
     },
     "backlight": {
         "format": "{percent}% {icon}",
@@ -137,7 +137,7 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "",
         "format-alt": "{time} {icon}  {power}W",
-       // "format-good": "", // An empty format will hide the module
+        //"format-good": "", // An empty format will hide the module
         "format-full": "",
         "format-icons": [
             "",
@@ -147,7 +147,7 @@
             ""
         ],
         "on-click": "",
-        "interval": 7
+        "interval": 6
     },
     "power-profiles-daemon": {
         "format": "{icon} ",
