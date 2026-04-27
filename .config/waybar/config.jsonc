@@ -2,7 +2,7 @@
 {
     // "output": "eDP-1",
     "reload_style_on_change": false,
-    "layer": "top",
+    "layer": "bottom",
     "position": "bottom",
     "height": 36,
     "spacing": 4,
@@ -88,13 +88,13 @@
     },
     "cpu": {
         "format": "{usage}% ",
-        "on-click": "xfce4-terminal -e htop",
+        "on-click": "alacritty -e htop",
         "on-click-right": "gnome-system-monitor",
         "interval": 6
     },
     "memory": {
         "format": "{}% ",
-        "on-click": "xfce4-terminal -e htop",
+        "on-click": "alacritty -e htop",
         "on-click-right": "gnome-system-monitor",
         "interval": 6
     },
@@ -123,8 +123,8 @@
             "",
             ""
         ],
-        "on-scroll-up": "brightnessctl set 5%+",
-        "on-scroll-down": "brightnessctl set 5%-",
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
         "on-click": "if [ -n \"$(pidof hyprsunset)\" ]; then killall hyprsunset; else hyprsunset -t 5000; fi"
     },
     "battery": {
@@ -203,6 +203,7 @@
         "min-length": 2,
         "format-en": "EN",
         "format-ru": "RU",
+        "format-ru-tt": "TT",
         "keyboard-name": "at-translated-set-2-keyboard",
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },
