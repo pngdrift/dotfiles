@@ -15,10 +15,10 @@
         "wlr/taskbar"
     ],
     "modules-right": [
-        //"idle_inhibitor",
-        "group/audio",
+        // "idle_inhibitor",
         "group/hardware",
-        "temperature",
+        "group/audio",
+        // "temperature",
         "backlight",
         "battery",
         "power-profiles-daemon",
@@ -29,19 +29,19 @@
         "clock"
     ],
     "group/audio": {
-		"orientation": "vertical",
-		"modules": [
+        "orientation": "horizontal",
+        "modules": [
             "pulseaudio#input",
-			"pulseaudio"
-		]
-	},
+            "pulseaudio"
+        ]
+    },
     "group/hardware": {
-		"orientation": "vertical",
-		"modules": [
-			"cpu",
-			"memory"
-		]
-	},
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory"
+        ]
+    },
     "hyprland/workspaces": {
         "active-only": false,
         "show-special": true,
@@ -129,7 +129,7 @@
     },
     "battery": {
         "states": {
-            "good": 94,
+            "good": 99,
             "warning": 30,
             "critical": 20
         },
@@ -137,7 +137,7 @@
         "format-charging": "{capacity}% ",
         "format-plugged": "",
         "format-alt": "{time} {icon}  {power}W",
-        //"format-good": "", // An empty format will hide the module
+        "format-good": "", // An empty format will hide the module
         "format-full": "",
         "format-icons": [
             "",
@@ -180,7 +180,7 @@
             ]
         },
         "on-click": "pavucontrol -t 3",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        "on-click-right": "pactl set-sink-mute 0 toggle"
     },
     "pulseaudio#input": {
         "format": "{format_source}",
@@ -189,13 +189,13 @@
         "on-scroll-down": "",
         "on-scroll-up": "",
         "on-click": "pavucontrol -t 4",
-        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        "on-click-right": "pactl set-source-mute 0 toggle"
     },
     "custom/power": {
         "format": "  ",
         "tooltip": false,
         "on-click": "wlogout --show-binds --protocol layer-shell",
-        "on-click-right": "pidof wofi || wofi -ia --allow-images --show drun"
+        "on-click-right": "fuzzel"
     },
     "hyprland/language": {
         "tooltip": true,
